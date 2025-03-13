@@ -5,6 +5,7 @@ const url = "http://127.0.0.1:3000";
 
 const LoginButton: React.FC = () => {
   const [data, setData] = useState("");
+
   const fetchData = async () => {
     try {
       const response = await fetch(`${url}/test`);
