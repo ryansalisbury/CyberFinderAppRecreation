@@ -4,17 +4,21 @@ import AboutPage from "./Pages/About/AboutPage";
 import MapPage from "./Pages/Map/MapPage";
 import HomePage from "./Pages/Home/HomePage";
 import QuestionnairePage from "./Pages/Questionnaire/QuestionnairePage";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/see-map" element={<MapPage />} />
-        <Route path="/questionnaire" element={<QuestionnairePage />} />
-      </Routes>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/see-map" element={<MapPage />} />
+          <Route path="/questionnaire" element={<QuestionnairePage />} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 

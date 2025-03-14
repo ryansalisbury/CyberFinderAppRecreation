@@ -1,5 +1,5 @@
-import { Stack, TextField } from "@mui/material";
-import { Controller, useController, useFormContext } from "react-hook-form";
+import { TextField } from "@mui/material";
+import { useController, useFormContext } from "react-hook-form";
 interface Props {
   label: string;
   name: string;
@@ -14,14 +14,13 @@ const FormInputText = ({ label, name }: Props) => {
   });
 
   return (
-    <Stack padding={1}>
-      <TextField
-        {...field}
-        label={label}
-        error={!!fieldState.error}
-        helperText={"Some field helper text"}
-      />
-    </Stack>
+    <TextField
+      {...field}
+      label={label}
+      error={!!fieldState.error}
+      fullWidth
+      helperText={"Some field helper text"}
+    />
   );
 };
 
