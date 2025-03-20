@@ -4,11 +4,10 @@ import { useState } from "react";
 import { useController, useFormContext } from "react-hook-form";
 import InternalSOCModal from "./InternalSOCModal";
 interface Props {
-  label: string;
   name: string;
 }
 
-const InternalSOCInput = ({ label, name }: Props) => {
+const InternalSOCInput = ({ name }: Props) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const { control } = useFormContext();
   const { field } = useController({
