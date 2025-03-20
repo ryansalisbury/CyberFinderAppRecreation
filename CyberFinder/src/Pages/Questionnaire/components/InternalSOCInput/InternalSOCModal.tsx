@@ -1,10 +1,17 @@
-import { Box, Grid2, Modal, Typography } from "@mui/material";
+import { Box, Button, Grid2, Modal, Tooltip, Typography } from "@mui/material";
 import FormInputText from "../../common/components/FormInputText";
-
+import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 interface Props {
   isModalOpen: boolean;
   handleClose: () => void;
 }
+
+const helperIcon = (
+  <Tooltip title="SOC rating refers to your ovrall satisfaction with your SOC's performance in improving your businesses security">
+    <QuestionMarkIcon sx={{ fontSize: 20, verticalAlign: "middle" }} />
+  </Tooltip>
+);
+
 const InternalSOCModal = ({ isModalOpen, handleClose }: Props) => {
   return (
     <Modal open={isModalOpen} onClose={handleClose}>
@@ -14,18 +21,38 @@ const InternalSOCModal = ({ isModalOpen, handleClose }: Props) => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: 400,
           bgcolor: "background.paper",
           boxShadow: 24,
-          p: 4,
+          p: 3,
           borderRadius: 2,
+          maxWidth: "100%",
+          alignItems: "stretch",
         }}
       >
         <Typography variant="h5">Internal SOC Modal</Typography>
         <Grid2 container>
-          <Grid2 size={8} padding={2}>
-            <FormInputText label="SOC Contact Details" name="SOCEmail" />
+          <Grid2 size={12}>
+            <FormInputText label="SOC email address" name="SOCEmail" />
           </Grid2>
+          <Grid2 size={12}>
+            <FormInputText label="SOC mobile number" name="SOCMobile" />
+          </Grid2>
+          <Grid2 size={12}>
+            <FormInputText
+              label="Number of Employees"
+              name="NumberSOCEmployees"
+            />
+          </Grid2>
+          <Grid2 size={12}>
+            <FormInputText
+              label="SOC rating"
+              name="SOCRating"
+              icon={helperIcon}
+            />
+          </Grid2>
+          <Button variant="contained" onClick={handleClose}>
+            CLOSE
+          </Button>
         </Grid2>
       </Box>
     </Modal>

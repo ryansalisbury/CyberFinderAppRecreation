@@ -37,7 +37,13 @@ const InternalSOCInput = ({ label, name }: Props) => {
         </Grid2>
         <Grid2 size={8} justifyContent="flex-start">
           <Switch {...field} onChange={handleChange} />
-          {field.value && <Button onClick={handleOpen}>Edit</Button>}
+          <Button
+            sx={{ visibility: field.value ? "visible" : "hidden", marginX: 1 }}
+            onClick={handleOpen}
+            variant="outlined"
+          >
+            Edit
+          </Button>
         </Grid2>
       </Grid2>
       <InternalSOCModal isModalOpen={isModalOpen} handleClose={handleClose} />
