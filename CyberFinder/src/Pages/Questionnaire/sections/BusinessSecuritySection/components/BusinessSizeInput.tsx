@@ -1,8 +1,9 @@
 import {
+  Box,
   FormControlLabel,
-  Grid2,
   Radio,
   RadioGroup,
+  Stack,
   Typography,
 } from "@mui/material";
 
@@ -24,13 +25,11 @@ const BusinessSizeInput = ({ label, name }: Props) => {
   });
 
   return (
-    <Grid2 container padding={1}>
-      <Grid2 size={4}>
-        <Typography fontWeight="bold" textAlign={"center"}>
-          SME Size:
-        </Typography>
-      </Grid2>
-      <Grid2 size={8} display="inline-flex">
+    <Stack direction="row" spacing={2} alignItems="center" padding={1}>
+      <Typography sx={{ width: 200 }} fontWeight="bold">
+        SME Size:
+      </Typography>
+      <Box display="flex" justifyContent="center" width="80%">
         <RadioGroup row {...field}>
           {sizes.map((s) => {
             return (
@@ -43,8 +42,8 @@ const BusinessSizeInput = ({ label, name }: Props) => {
             );
           })}
         </RadioGroup>
-      </Grid2>
-    </Grid2>
+      </Box>
+    </Stack>
   );
 };
 

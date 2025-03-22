@@ -1,18 +1,7 @@
 import { Button, Stack, Typography } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
-import InternalSOCInput from "./components/InternalSOCInput/InternalSOCInput";
-import {
-  BusinessNameInput,
-  BusinessSizeInput,
-  PhoneNumberInput,
-  EmployeeNumberInput,
-  PostcodeInput,
-  RegionPickerInput,
-  PreviousInteractionInput,
-  UrlInput,
-} from "./components";
-import CyberTopicMultiSelect from "./components/CyberTopicMultiSelect";
-import CyberVictimInput from "./components/CyberVictimInput/CyberVictimInput";
+import BusinessAdminSection from "./sections/BusinessAdminSection/BusinessAdminSection";
+import BusinessSecuritySection from "./sections/BusinessSecuritySection/BusinessSecuritySection";
 
 const QuestionnairePage: React.FC = () => {
   // add type for questionnaire
@@ -25,21 +14,10 @@ const QuestionnairePage: React.FC = () => {
 
   return (
     <Stack>
-      <Typography variant="h1" sx={{ color: "white" }}>
-        Questionnaire Page
-      </Typography>
+      <Typography variant="h1">Questionnaire Page</Typography>
       <FormProvider {...methods}>
-        <BusinessNameInput label="Question 1" name="BusinessName" />
-        <PhoneNumberInput label="Question 2" name="PhoneNumber" />
-        <UrlInput label="Question 3" name="Url" />
-        <RegionPickerInput label="Question 4" name="Region" />
-        <PostcodeInput label="Question 5" name="Postcode" />
-        <PreviousInteractionInput name="PreviousInteraction" />
-        <EmployeeNumberInput label="Question 7" name="EmployeeNumber" />
-        <BusinessSizeInput label="Question8" name="PreviousInteraction" />
-        <InternalSOCInput name="InternalSOC" />
-        <CyberTopicMultiSelect name="CyberTopicSelection" label="Question10" />
-        <CyberVictimInput name="CyberVictim" />
+        <BusinessAdminSection />
+        <BusinessSecuritySection />
       </FormProvider>
 
       <Button

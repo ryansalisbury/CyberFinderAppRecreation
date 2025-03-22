@@ -23,8 +23,14 @@ const FormInputText = ({ label, name, icon, helperText, required }: Props) => {
       label={label}
       error={!!fieldState.error}
       fullWidth
+      variant="outlined"
       helperText={helperText}
-      sx={{ padding: 1 }}
+      sx={{
+        padding: 1,
+        flex: 1,
+        minWidth: 200,
+        maxWidth: "80%",
+      }}
       slotProps={{
         input: {
           endAdornment: (

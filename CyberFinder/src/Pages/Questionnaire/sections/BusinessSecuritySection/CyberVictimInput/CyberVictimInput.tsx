@@ -1,4 +1,4 @@
-import { Button, Grid2, Switch, Typography } from "@mui/material";
+import { Box, Button, Stack, Switch, Typography } from "@mui/material";
 import { useState } from "react";
 
 import { useController, useFormContext } from "react-hook-form";
@@ -27,26 +27,22 @@ const CyberVictimInput = ({ name }: Props) => {
   };
 
   return (
-    <>
-      <Grid2 container padding={1}>
-        <Grid2 size={4}>
-          <Typography fontWeight="bold" textAlign={"center"}>
-            Have you peviously been a victim of a Cyber Attack?
-          </Typography>
-        </Grid2>
-        <Grid2 size={8} justifyContent="flex-start">
-          <Switch {...field} onChange={handleChange} />
-          <Button
-            sx={{ visibility: field.value ? "visible" : "hidden", marginX: 1 }}
-            onClick={handleOpen}
-            variant="outlined"
-          >
-            Edit
-          </Button>
-        </Grid2>
-      </Grid2>
+    <Stack direction="row" spacing={2} padding={2} alignItems="center">
+      <Typography sx={{ width: 200 }} fontWeight="bold" textAlign={"center"}>
+        Have you peviously been a victim of a Cyber Attack?
+      </Typography>
+      <Box width="stretch">
+        <Switch {...field} onChange={handleChange} />
+        <Button
+          sx={{ visibility: field.value ? "visible" : "hidden", marginX: 1 }}
+          onClick={handleOpen}
+          variant="outlined"
+        >
+          Edit
+        </Button>
+      </Box>
       <CyberVictimModal isModalOpen={isModalOpen} handleClose={handleClose} />
-    </>
+    </Stack>
   );
 };
 

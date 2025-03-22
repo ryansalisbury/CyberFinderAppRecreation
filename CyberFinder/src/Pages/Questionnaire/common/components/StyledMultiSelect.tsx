@@ -1,7 +1,7 @@
 import {
+  Box,
   Checkbox,
   Chip,
-  Grid2,
   ListItemIcon,
   ListItemText,
   MenuItem,
@@ -44,45 +44,58 @@ const StyledMultiSelect = ({ label, name, question, values }: Props) => {
   });
 
   const renderValue = (selected: string[]) => (
-    <Stack direction="row" gap={1}>
-      {(selected as string[]).map((val) => (
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 1,
+      }}
+    >
+      {selected.map((val) => (
         <Chip key={val} label={val} />
       ))}
-    </Stack>
+    </Box>
   );
 
   return (
-    <Grid2 container padding={1}>
-      <Grid2 size={4}>
-        <Typography fontWeight="bold" textAlign={"center"}>
-          {question}
-        </Typography>
-      </Grid2>
-      <Grid2 size={8}>
-        <Select
-          multiple
-          label={label}
-          input={<OutlinedInput label="Tag" />}
-          value={value || []}
-          {...restField}
-          renderValue={renderValue}
-          error={!!fieldState.error}
-          MenuProps={MenuProps}
-        >
-          {values.map((val) => (
-            <MenuItem key={val} value={val}>
-              <ListItemIcon>
-                <Checkbox
-                  checked={(value as string[]).includes(val)}
-                  value={val}
-                />
-                <ListItemText primary={val} />
-              </ListItemIcon>
-            </MenuItem>
-          ))}
-        </Select>
-      </Grid2>
-    </Grid2>
+    <Stack direction="row" spacing={2} alignItems="center">
+      <Typography sx={{ width: 200 }} fontWeight="bold">
+        {question}
+      </Typography>
+      <Select
+        multiple
+        label={label}
+        input={<OutlinedInput label="Tag" />}
+        value={value || []}
+        {...restField}
+        sx={{
+          width: "70%",
+          "& .MuiSelect-select": {
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: 0.5,
+            minHeight: 40,
+            padding: "8px 12px",
+          },
+        }}
+        renderValue={renderValue}
+        error={!!fieldState.error}
+        MenuProps={MenuProps}
+      >
+        {values.map((val) => (
+          <MenuItem key={val} value={val}>
+            <ListItemIcon>
+              <Checkbox
+                checked={(value as string[]).includes(val)}
+                value={val}
+              />
+              <ListItemText primary={val} />
+            </ListItemIcon>
+          </MenuItem>
+        ))}
+      </Select>
+    </Stack>
   );
 };
 

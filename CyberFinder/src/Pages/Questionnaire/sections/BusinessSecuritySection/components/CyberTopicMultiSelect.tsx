@@ -1,4 +1,4 @@
-import StyledMultiSelect from "../common/components/StyledMultiSelect";
+import StyledMultiSelect from "../../../common/components/StyledMultiSelect";
 
 interface Props {
   label: string;
@@ -17,8 +17,7 @@ const cyberTopics: string[] = [
   "name9",
 ];
 
-const question =
-  "Please select the cyber topics you would like your business to improve upon through the ROCU services";
+const question = "Cyber Topics to learn about: ";
 
 const CyberTopicMultiSelect = ({ name, label }: Props) => {
   return (

@@ -1,5 +1,5 @@
 import { Box, Button, Grid2, Modal, Tooltip, Typography } from "@mui/material";
-import FormInputText from "../../common/components/FormInputText";
+import FormInputText from "../../../common/components/FormInputText";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 interface Props {
   isModalOpen: boolean;

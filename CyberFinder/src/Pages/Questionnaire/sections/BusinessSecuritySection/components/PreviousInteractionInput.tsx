@@ -1,4 +1,4 @@
-import { Grid2, Switch, Typography } from "@mui/material";
+import { Box, Stack, Switch, Typography } from "@mui/material";
 
 import { useController, useFormContext } from "react-hook-form";
 interface Props {
@@ -15,16 +15,14 @@ const PreviousInteractionInput = ({ name }: Props) => {
   });
 
   return (
-    <Grid2 container padding={1}>
-      <Grid2 size={4}>
-        <Typography fontWeight="bold" textAlign={"center"}>
-          Have you had a cyber consultation from ROCU before?
-        </Typography>
-      </Grid2>
-      <Grid2 size={8} justifyContent="flex-start">
+    <Stack direction="row" spacing={2} padding={1} alignItems="center">
+      <Typography sx={{ width: 200 }} fontWeight="bold">
+        Have you had a cyber consultation from ROCU before?
+      </Typography>
+      <Box width="stretch">
         <Switch {...field} />
-      </Grid2>
-    </Grid2>
+      </Box>
+    </Stack>
   );
 };
 
