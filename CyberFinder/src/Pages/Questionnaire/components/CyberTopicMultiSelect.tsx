@@ -1,7 +1,4 @@
-import { Chip, MenuItem, Stack } from "@mui/material";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { useState } from "react";
-import { useController, useFormContext } from "react-hook-form";
+import StyledMultiSelect from "../common/components/StyledMultiSelect";
 
 interface Props {
   label: string;
@@ -20,44 +17,17 @@ const cyberTopics: string[] = [
   "name9",
 ];
 
+const question =
+  "Please select the cyber topics you would like your business to improve upon through the ROCU services";
+
 const CyberTopicMultiSelect = ({ name, label }: Props) => {
-  const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
-  const { control } = useFormContext();
-
-  const { field, fieldState } = useController({
-    name,
-    control,
-    rules: { required: true },
-    defaultValue: [],
-  });
-
-  const handleChange = (e: SelectChangeEvent<string[]>) => {
-    setSelectedTopics(e.target.value as string[]);
-  };
-
-  const render = () => (
-    <Stack>
-      {selectedTopics.map((topic) => (
-        <Chip key={topic} label={topic} />
-      ))}
-    </Stack>
-  );
-
   return (
-    <Select
-      multiple
-      //   value={cyberTopics}
-      //   onChange={handleChange}
+    <StyledMultiSelect
+      name={name}
       label={label}
-      renderValue={render}
-      {...field}
-    >
-      {cyberTopics.map((topic) => (
-        <MenuItem key={topic} value={topic}>
-          {topic}
-        </MenuItem>
-      ))}
-    </Select>
+      question={question}
+      values={cyberTopics}
+    />
   );
 };
 

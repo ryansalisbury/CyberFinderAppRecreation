@@ -12,6 +12,7 @@ import {
   UrlInput,
 } from "./components";
 import CyberTopicMultiSelect from "./components/CyberTopicMultiSelect";
+import CyberVictimInput from "./components/CyberVictimInput/CyberVictimInput";
 
 const QuestionnairePage: React.FC = () => {
   // add type for questionnaire
@@ -38,6 +39,7 @@ const QuestionnairePage: React.FC = () => {
         <BusinessSizeInput label="Question8" name="PreviousInteraction" />
         <InternalSOCInput name="InternalSOC" />
         <CyberTopicMultiSelect name="CyberTopicSelection" label="Question10" />
+        <CyberVictimInput name="CyberVictim" />
       </FormProvider>
 
       <Button

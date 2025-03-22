@@ -1,6 +1,7 @@
 import { Box, Button, Grid2, Modal, Tooltip, Typography } from "@mui/material";
 import FormInputText from "../../common/components/FormInputText";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
+import StyledMultiSelect from "../../common/components/StyledMultiSelect";
 interface Props {
   isModalOpen: boolean;
   handleClose: () => void;
@@ -12,7 +13,19 @@ const helperIcon = (
   </Tooltip>
 );
 
-const InternalSOCModal = ({ isModalOpen, handleClose }: Props) => {
+const values: string[] = [
+  "name1",
+  "name2",
+  "name3",
+  "name4",
+  "name5",
+  "name6",
+  "name7",
+  "name8",
+  "name9",
+];
+
+const CyberVictimModal = ({ isModalOpen, handleClose }: Props) => {
   return (
     <Modal open={isModalOpen} onClose={handleClose}>
       <Box
@@ -29,13 +42,16 @@ const InternalSOCModal = ({ isModalOpen, handleClose }: Props) => {
           alignItems: "stretch",
         }}
       >
-        <Typography variant="h5">Internal SOC Modal</Typography>
+        <Typography variant="h5">Cyber Victim Modal</Typography>
         <Grid2 container>
           <Grid2 size={12}>
-            <FormInputText
-              label="SOC email address"
-              name="SOCEmail"
-              required={false}
+            <StyledMultiSelect
+              name="HelpSelection"
+              label="Entities who provide cyber support"
+              question={
+                "Did you receive support from the following organisations?"
+              }
+              values={values}
             />
           </Grid2>
           <Grid2 size={12}>
@@ -69,4 +85,4 @@ const InternalSOCModal = ({ isModalOpen, handleClose }: Props) => {
   );
 };
 
-export default InternalSOCModal;
+export default CyberVictimModal;

@@ -6,13 +6,14 @@ interface Props {
   name: string;
   icon?: ReactNode;
   helperText?: string;
+  required?: boolean;
 }
-const FormInputText = ({ label, name, icon, helperText }: Props) => {
+const FormInputText = ({ label, name, icon, helperText, required }: Props) => {
   const { control } = useFormContext();
   const { field, fieldState } = useController({
     name,
     control,
-    rules: { required: true },
+    rules: { required: required ?? false },
     defaultValue: "",
   });
 
