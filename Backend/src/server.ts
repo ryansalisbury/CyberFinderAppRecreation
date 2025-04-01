@@ -12,12 +12,10 @@ fastify.register(cors, {
   origin: "*", // or ['http://localhost:5174'] if you only want to allow that domain
 });
 
-// connect up MongoDB
-const MONGO_URI =
-  "mongodb+srv://ryansalisbury10:xnDmAaoNznWfASID@cyberfindercluster.q9j6w.mongodb.net/?retryWrites=true&w=majority&appName=CyberFinderCluster";
+// connect to MongoDB
+mongoose.connect(process.env.MONGO_URL || "");
 
-mongoose.connect(MONGO_URI);
-
+// Test route
 fastify.get("/test", async (request, reply) => {
   return { message: "MongoDB is connected" };
 });
