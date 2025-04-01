@@ -58,7 +58,7 @@ const StyledMultiSelect = ({ label, name, question, values }: Props) => {
   );
 
   return (
-    <Stack direction="row" spacing={2} alignItems="center">
+    <Stack direction="row" spacing={2} padding={1} alignItems="center">
       <Typography sx={{ width: 200 }} fontWeight="bold">
         {question}
       </Typography>
@@ -76,6 +76,7 @@ const StyledMultiSelect = ({ label, name, question, values }: Props) => {
             alignItems: "center",
             gap: 0.5,
             minHeight: 40,
+            minWidth: "400px",
             padding: "8px 12px",
           },
         }}

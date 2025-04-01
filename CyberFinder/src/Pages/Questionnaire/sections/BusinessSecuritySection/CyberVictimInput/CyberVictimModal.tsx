@@ -1,4 +1,4 @@
-import { Box, Grid2, Modal, Typography } from "@mui/material";
+import { Box, Modal, Typography } from "@mui/material";
 import CyberVictimModalContent from "./CyberVictimModalContent";
 interface Props {
   isModalOpen: boolean;
@@ -23,9 +23,7 @@ const CyberVictimModal = ({ isModalOpen, handleClose }: Props) => {
         }}
       >
         <Typography variant="h5">Cyber Victim Modal</Typography>
-        <Grid2 container>
-          <CyberVictimModalContent />
-        </Grid2>
+        <CyberVictimModalContent />
       </Box>
     </Modal>
   );

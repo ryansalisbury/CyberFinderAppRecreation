@@ -4,6 +4,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { useController, useFormContext } from "react-hook-form";
 import dayjs, { Dayjs } from "dayjs";
+import { Stack, Typography } from "@mui/material";
 
 interface Props {
   label: string;
@@ -30,7 +31,10 @@ const ActionFraudDatePicker = ({ label, name, required }: Props) => {
   };
 
   return (
-    <>
+    <Stack direction={"row"} padding={1}>
+      <Typography sx={{ width: 200 }} fontWeight="bold">
+        ActionFraud Date
+      </Typography>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateTimePicker
           value={pickerValue}
@@ -44,7 +48,7 @@ const ActionFraudDatePicker = ({ label, name, required }: Props) => {
           }}
         />
       </LocalizationProvider>
-    </>
+    </Stack>
   );
 };
 

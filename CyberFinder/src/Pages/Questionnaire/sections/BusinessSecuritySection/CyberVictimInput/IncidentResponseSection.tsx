@@ -1,4 +1,4 @@
-import { Collapse, Stack, Switch } from "@mui/material";
+import { Collapse, Stack, Switch, Typography } from "@mui/material";
 import { useState } from "react";
 import StyledMultiSelect from "../../../common/components/StyledMultiSelect";
 
@@ -14,7 +14,12 @@ const IncidentResponseSection = () => {
   ];
   return (
     <>
-      <Switch checked={showExtra} onChange={handleChange} />
+      <Stack direction="row" alignContent="flex-start">
+        <Typography sx={{ width: 200 }} fontWeight="bold">
+          External Company used?
+        </Typography>
+        <Switch checked={showExtra} onChange={handleChange} />
+      </Stack>
       <Collapse in={showExtra}>
         <Stack>
           <StyledMultiSelect

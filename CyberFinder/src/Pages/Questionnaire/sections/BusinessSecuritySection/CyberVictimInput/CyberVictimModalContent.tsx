@@ -1,8 +1,7 @@
-import { Grid2, Switch } from "@mui/material";
 import StyledMultiSelect from "../../../common/components/StyledMultiSelect";
-import FormNumberInput from "../../../common/components/FormNumberInput";
-import ActionFraudSection from "./ActionFraudSection";
+import ActionFraudSection from "./ActionFraudSection/ActionFraudSection";
 import IncidentResponseSection from "./IncidentResponseSection";
+import MoneyLostInput from "./MoneyLostInput";
 
 const organisations: string[] = [
   "ActionFraud",
@@ -24,29 +23,21 @@ const cyberCrimes: string[] = [
 const CyberVictimModalContent = () => {
   return (
     <>
-      <Grid2 size={12}>
-        <StyledMultiSelect
-          name="SupportReceived"
-          label="Entities who provide cyber support"
-          question={"Support Received"}
-          values={organisations}
-        />
-      </Grid2>
-      <Grid2 size={12}>
-        <StyledMultiSelect
-          name="CyberCrimeType"
-          label="Type of cyber crime"
-          question={"Type of Cyber Crime"}
-          values={cyberCrimes}
-        />
-      </Grid2>
-      <Grid2 size={12}>
-        <FormNumberInput label="£" name="NumberSOCEmployees" required={false} />
-      </Grid2>
-      <Grid2 size={12}>
-        <ActionFraudSection />
-        <IncidentResponseSection />
-      </Grid2>
+      <StyledMultiSelect
+        name="SupportReceived"
+        label="Entities who provide cyber support"
+        question={"Support Received"}
+        values={organisations}
+      />
+      <StyledMultiSelect
+        name="CyberCrimeType"
+        label="Type of cyber crime"
+        question={"Type of Cyber Crime"}
+        values={cyberCrimes}
+      />
+      <MoneyLostInput name="EstimatedMoneyLost" label="£" />
+      <ActionFraudSection />
+      <IncidentResponseSection />
     </>
   );
 };
