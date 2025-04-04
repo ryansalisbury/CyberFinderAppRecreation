@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import Fastify from "fastify";
 import mongoose from "mongoose";
 import cors from "@fastify/cors";
+import BusinessRoutes from "./routes/BusinessRoutes/BusinessRoutes";
 
 dotenv.config();
 
@@ -14,6 +15,8 @@ fastify.register(cors, {
 
 // connect to MongoDB
 mongoose.connect(process.env.MONGO_URL || "");
+
+fastify.register(BusinessRoutes, { prefix: "/business" });
 
 // Test route
 fastify.get("/test", async (request, reply) => {
