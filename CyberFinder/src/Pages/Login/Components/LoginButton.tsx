@@ -1,9 +1,14 @@
 import { Button, Stack } from "@mui/material";
 import { useState } from "react";
+import { FieldValues, UseFormHandleSubmit } from "react-hook-form";
+
+interface Props {
+  submit: UseFormHandleSubmit<FieldValues, undefined>;
+}
 
 const url = "http://127.0.0.1:3000";
 
-const LoginButton: React.FC = () => {
+const LoginButton = ({ submit }: Props) => {
   const [data, setData] = useState("");
 
   const fetchData = async () => {
@@ -25,7 +30,7 @@ const LoginButton: React.FC = () => {
   return (
     <Stack>
       {data}
-      <Button onClick={fetchData}>Login</Button>
+      <Button onClick={submit}>Login</Button>
     </Stack>
   );
 };
