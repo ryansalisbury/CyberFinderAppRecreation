@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useController, useFormContext } from "react-hook-form";
-import useGetRegions from "../../../hooks/useGetRegions";
+import useGetRegions from "../../../hooks/useGetRegion/useGetRegions";
 import FormInputText from "../../../common/components/FormInputText";
 interface Props {
   name: string;

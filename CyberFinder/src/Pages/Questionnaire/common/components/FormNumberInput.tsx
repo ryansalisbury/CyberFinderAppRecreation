@@ -28,7 +28,6 @@ const FormNumberInput = ({ label, name, required }: Props) => {
       }}
       variant="outlined"
       type="number"
-      helperText={"Some field helper text"}
     />
   );
 };

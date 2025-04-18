@@ -2,10 +2,13 @@ import { Button, Stack, Typography } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import BusinessAdminSection from "./sections/BusinessAdminSection/BusinessAdminSection";
 import BusinessSecuritySection from "./sections/BusinessSecuritySection/BusinessSecuritySection";
+import useCalculateQuestionnaireScore from "./hooks/useGetQuestionnaireScore/useGetQuestionnaireScore";
 
 const QuestionnairePage: React.FC = () => {
-  // add type for questionnaire
+  // TO DO add type for questionnaire (Pre calculation)
   const onSubmit = (data: any) => {
+    // TO DO implement this function
+    useCalculateQuestionnaireScore(data);
     console.log(data);
   };
 

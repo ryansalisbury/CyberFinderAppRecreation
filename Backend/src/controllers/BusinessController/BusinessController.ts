@@ -1,5 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import {
+  createBusinessQuestionnaire,
   createBusinessUser,
   getUserById,
 } from "../../service/businessUserService/businessUserService";
@@ -16,6 +17,7 @@ export const registerBusinessUser = async (
   reply: FastifyReply
 ) => {
   try {
+    // TO DO create a user type in common folder
     const user = request.body as any;
 
     const result = await createBusinessUser(user);
@@ -37,12 +39,16 @@ export const registerBusinessUser = async (
   }
 };
 
+interface GetBusinessUserInterface {
+  id: string;
+}
+
 export const getBusinessUserById = async (
-  request: FastifyRequest,
-  reply: FastifyReply
+  request: FastifyRequest<{ Params: GetBusinessUserInterface }>,
+  reply: FastifyReply<{}>
 ) => {
   try {
-    const { id } = request.params as any;
+    const { id } = request.params;
 
     const result = await getUserById(id);
 
@@ -58,6 +64,33 @@ export const getBusinessUserById = async (
       message: "Business User successfully retrieved",
       data: {
         result,
+      },
+    });
+  } catch (error) {
+    const err = error as Error;
+    return reply.code(500).send({
+      success: false,
+      message: err.message,
+    });
+  }
+};
+
+export const createQuestionnaire = async (
+  request: FastifyRequest,
+  reply: FastifyReply
+) => {
+  try {
+    // TO DO create a questionnaire type in common folder
+    const questionnaire = request.body as any;
+
+    const result = await createBusinessQuestionnaire(questionnaire);
+
+    return reply.code(201).send({
+      success: true,
+      message: "Business Questionnaire successfully created",
+      data: {
+        questionnaireId: result.questionnaire._id,
+        businessName: result.questionnaire.businessName,
       },
     });
   } catch (error) {
